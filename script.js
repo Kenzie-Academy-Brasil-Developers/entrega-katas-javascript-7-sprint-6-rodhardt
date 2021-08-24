@@ -36,7 +36,7 @@ function newSome(array, callback) {
 
     for (let i = 0; i < array.length; i++) {
         const currentValue = array[i]
-        if (callback(currentValue, i, array) === true) {
+        if (callback(currentValue, i, array)) {
             return true
         }
     }
@@ -49,7 +49,7 @@ function newFind(array, callback) {
 
     for (let i = 0; i < array.length; i++) {
         const currentValue = array[i]
-        if (callback(currentValue, i, array) === true) {
+        if (callback(currentValue, i, array)) {
             return currentValue
         }
     }
@@ -62,7 +62,7 @@ function newFindIndex(array, callback) {
 
     for (let i = 0; i < array.length; i++) {
         const currentValue = array[i]
-        if (callback(currentValue, i, array) === true) {
+        if (callback(currentValue, i, array)) {
             return i
         }
     }
@@ -75,7 +75,7 @@ function newEvery(array, callback) {
 
     for (let i = 0; i < array.length; i++) {
         const currentValue = array[i]
-        if (callback(currentValue, i, array) !== true) {
+        if (!callback(currentValue, i, array)) {
             return false
         }
     }
@@ -89,7 +89,7 @@ function newFilter(array, callback) {
     let filterReturn = []
     for (let i = 0; i < array.length; i++) {
         const currentValue = array[i]
-        if (callback(currentValue, i, array) === true) {
+        if (callback(currentValue, i, array)) {
             filterReturn = [...filterReturn, currentValue]
         }
     }
